@@ -9,7 +9,7 @@ training:
   sql: | 
     select
         TO_TIMESTAMP("date", 'YYYY-MM-DD') as ts,
-        CAST(temp_max as double) as "value"
+        CAST(temp_max as double) as "y"
     from "@vegeta-ai".datasets.weather
     order by ts
     limit 500
@@ -18,7 +18,7 @@ inferencing:
   sql: |
     select
         TO_TIMESTAMP("date", 'YYYY-MM-DD') as ts,
-        CAST(temp_max as double) as "value"
+        CAST(temp_max as double) as "y"
     from "@vegeta-ai".datasets.weather
     order by ts
     limit 50
