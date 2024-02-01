@@ -25,3 +25,6 @@ inferencing:
 
   lookback_size: 50
   forecast_size: 1
+
+metadata:
+  test: true
