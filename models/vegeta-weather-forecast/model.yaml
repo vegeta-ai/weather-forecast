@@ -11,7 +11,7 @@ training:
         TO_TIMESTAMP("date", 'YYYY-MM-DD') as ts,
         CAST(temp_max as double) as "y"
     from "@vegeta-ai".datasets.weather
-    order by ts
+    order by ts desc
     limit 500
 
 inferencing:
@@ -20,7 +20,7 @@ inferencing:
         TO_TIMESTAMP("date", 'YYYY-MM-DD') as ts,
         CAST(temp_max as double) as "y"
     from "@vegeta-ai".datasets.weather
-    order by ts
+    order by ts desc
     limit 50
 
   lookback_size: 50
