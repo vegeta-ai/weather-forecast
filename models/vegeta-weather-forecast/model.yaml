@@ -23,7 +23,7 @@ inferencing:
     order by ts desc
     limit 50
 
-  lookback_size: 50
+  lookback_size: 30
   forecast_size: 1
 
 metadata:
