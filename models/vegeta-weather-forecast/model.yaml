@@ -8,7 +8,7 @@ epochs: 10
 training:
   sql: | 
     select
-        TO_TIMESTAMP("date", 'YYYY-MM-DD') as ts,
+        EXTRACT(epoch FROM "date") as ts,
         CAST(temp_max as double) as "y"
     from "@vegeta-ai".datasets.weather
     order by ts desc
@@ -17,7 +17,7 @@ training:
 inferencing:
   sql: |
     select
-        TO_TIMESTAMP("date", 'YYYY-MM-DD') as ts,
+        EXTRACT(epoch FROM "date") as ts,
         CAST(temp_max as double) as "y"
     from "@vegeta-ai".datasets.weather
     order by ts desc
