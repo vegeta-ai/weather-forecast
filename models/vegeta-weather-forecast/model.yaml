@@ -1,0 +1,31 @@
+family: vegeta-forecasting
+name: weather-v0.1
+
+type: xgb_gasfees
+
+epochs: 10
+
+training:
+  sql: | 
+    select
+        TO_TIMESTAMP("date", 'YYYY-MM-DD') as ts,
+        CAST(temp_max as double) as "value"
+    from "@vegeta-ai".datasets.weather
+    order by ts
+    limit 500
+
+inferencing:
+  sql: |
+    select
+        TO_TIMESTAMP("date", 'YYYY-MM-DD') as ts,
+        CAST(temp_max as double) as "value"
+    from "@vegeta-ai".datasets.weather
+    order by ts
+    limit 50
+
+  lookback_size: 50
+  forecast_size: 1
+
+metadata:
+  firecache: false
+  covariate: false
