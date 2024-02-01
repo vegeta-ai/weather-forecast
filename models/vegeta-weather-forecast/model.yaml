@@ -1,7 +1,7 @@
 family: vegeta-forecasting
 name: weather-v0.1
 
-type: xgb_gasfees
+type: tf_uniswapv3_eth_usdt_aggregated
 
 epochs: 10
 
@@ -27,5 +27,4 @@ inferencing:
   forecast_size: 1
 
 metadata:
-  firecache: false
-  covariate: false
+  aggregate: true
